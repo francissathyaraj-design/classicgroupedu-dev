@@ -35,14 +35,15 @@ header {
     }
 
     nav {
-        position: absolute;
-        top: 60px;
-        right: 0;
-        background: #ff6a00;
-        width: 200px;
-        flex-direction: column;
-        display: none;
-    }
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: #ff6a00;
+    width: 220px;
+    flex-direction: column;
+    display: none;
+    z-index: 999; /* important */
+}
 
     nav a {
         padding: 15px;
@@ -51,8 +52,8 @@ header {
     }
 
     nav.active {
-        display: flex;
-    }
+    display: flex;
+}
 
     nav {
     transition: 0.3s;
@@ -201,17 +202,28 @@ nav a:hover {
 </head>
     
 <script>
-function toggleMenu() {
-    const menu = document.getElementById("menu");
-    menu.classList.toggle("active");
-    const links = document.querySelectorAll("#menu a");
+const menu = document.getElementById("menu");
+const toggle = document.querySelector(".menu-toggle");
 
-links.forEach(link => {
+// Toggle open/close
+toggle.addEventListener("click", function (e) {
+    e.stopPropagation(); // prevent conflict
+    menu.classList.toggle("active");
+});
+
+// Close when clicking menu link
+document.querySelectorAll("#menu a").forEach(link => {
     link.addEventListener("click", () => {
-        document.getElementById("menu").classList.remove("active");
+        menu.classList.remove("active");
     });
-})
-}
+});
+
+// Close when clicking outside
+document.addEventListener("click", function (e) {
+    if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+        menu.classList.remove("active");
+    }
+});
 </script>
 
 <body>

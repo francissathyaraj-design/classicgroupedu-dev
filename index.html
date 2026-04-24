@@ -19,6 +19,41 @@ header {
     background: #ff6a00;
     padding: 10px 30px;
 }
+    /* Menu Toggle Icon */
+.menu-toggle {
+    display: none;
+    font-size: 25px;
+    color: white;
+    cursor: pointer;
+}
+
+/* Mobile Style */
+@media (max-width: 768px) {
+
+    .menu-toggle {
+        display: block;
+    }
+
+    nav {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: #ff6a00;
+        width: 200px;
+        flex-direction: column;
+        display: none;
+    }
+
+    nav a {
+        padding: 15px;
+        display: block;
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+
+    nav.active {
+        display: flex;
+    }
+}
 
 /* Logo */
 .logo {
@@ -160,6 +195,12 @@ nav a:hover {
 </style>
 
 </head>
+    
+<script>
+function toggleMenu() {
+    document.getElementById("menu").classList.toggle("active");
+}
+</script>
 
 <body>
 
@@ -170,7 +211,10 @@ nav a:hover {
         <span>Classic Group</span>
     </div>
 
-    <nav>
+    <!-- Menu Icon -->
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+    <nav id="menu">
         <a href="#">Home</a>
         <a href="#">Admissions</a>
         <a href="#">Courses</a>

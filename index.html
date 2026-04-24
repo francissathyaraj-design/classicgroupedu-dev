@@ -13,6 +13,9 @@ body {
 
 /* HEADER */
 header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -30,6 +33,10 @@ header {
 /* Mobile Style */
 @media (max-width: 768px) {
 
+    .menu-toggle {
+        display: block;
+    }
+
     nav {
         position: absolute;
         top: 60px;
@@ -41,10 +48,8 @@ header {
         z-index: 1000;
     }
 
-    nav a {
-        padding: 15px;
-        display: block;
-        border-bottom: 1px solid rgba(255,255,255,0.2);
+    nav.active {
+        display: flex;
     }
 }
 
@@ -192,12 +197,7 @@ nav a:hover {
 <script>
 function toggleMenu() {
     var menu = document.getElementById("menu");
-
-    if (menu.style.display === "flex") {
-        menu.style.display = "none";
-    } else {
-        menu.style.display = "flex";
-    }
+    menu.classList.toggle("active");
 }
 </script>
 

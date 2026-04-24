@@ -142,28 +142,34 @@ nav a {
 }
 
 /* FLOAT BUTTONS */
-.whatsapp {
+.floating-buttons {
     position: fixed;
+    right: 15px;
     bottom: 20px;
-    left: 20px;
-    background: #25D366;
-    color: white;
-    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.floating-buttons a {
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
-    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 22px;
     text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.whatsapp {
+    background: #25D366;
 }
 
 .call {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #ff6a00;
-    color: white;
-    padding: 15px;
-    border-radius: 50%;
-    font-size: 20px;
-    text-decoration: none;
+    background: #ff6600;
 }
 </style>
 
@@ -216,6 +222,27 @@ nav a {
     </div>
 </div>
 
+<section id="contact" style="padding:60px 20px; background:#f9f9f9; text-align:center;">
+    <h2 style="color:#ff6600;">Contact Us</h2>
+    <p>Get in touch for admissions</p>
+
+    <form style="max-width:500px; margin:auto;">
+        <input type="text" placeholder="Your Name" required 
+        style="width:100%; padding:12px; margin:10px 0; border-radius:5px; border:1px solid #ccc;">
+
+        <input type="tel" placeholder="Mobile Number" required 
+        style="width:100%; padding:12px; margin:10px 0; border-radius:5px; border:1px solid #ccc;">
+
+        <textarea placeholder="Message" rows="4" 
+        style="width:100%; padding:12px; margin:10px 0; border-radius:5px; border:1px solid #ccc;"></textarea>
+
+        <button type="submit" 
+        style="background:#ff6600; color:white; padding:12px 25px; border:none; border-radius:5px; cursor:pointer;">
+        Submit
+        </button>
+    </form>
+</section>
+
 <!-- FOOTER -->
 <div class="footer">
     <div class="footer-container">
@@ -230,9 +257,20 @@ nav a {
     </div>
 </div>
 
-<!-- FLOAT BUTTONS -->
-<a href="https://wa.me/919514550520" class="whatsapp">💬</a>
-<a href="tel:9514550520" class="call">📞</a>
+<!-- Floating Buttons -->
+<div class="floating-buttons">
+
+    <!-- WhatsApp -->
+    <a href="https://wa.me/919514550520" target="_blank" class="whatsapp">
+        💬
+    </a>
+
+    <!-- Call -->
+    <a href="tel:9514550520" class="call">
+        📞
+    </a>
+
+</div>
 
 <!-- JS -->
 <script>

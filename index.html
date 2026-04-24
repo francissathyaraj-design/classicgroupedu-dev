@@ -30,34 +30,22 @@ header {
 /* Mobile Style */
 @media (max-width: 768px) {
 
-    .menu-toggle {
-        display: block;
-    }
-
     nav {
-    position: absolute;
-    top: 60px;
-    right: 0;
-    background: #ff6a00;
-    width: 220px;
-    flex-direction: column;
-    display: none;
-    z-index: 999; /* important */
-}
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: #ff6a00;
+        width: 220px;
+        flex-direction: column;
+        display: none;
+        z-index: 1000;
+    }
 
     nav a {
         padding: 15px;
         display: block;
         border-bottom: 1px solid rgba(255,255,255,0.2);
     }
-
-    nav.active {
-    display: flex;
-}
-
-    nav {
-    transition: 0.3s;
-}
 }
 
 /* Logo */
@@ -202,28 +190,15 @@ nav a:hover {
 </head>
     
 <script>
-const menu = document.getElementById("menu");
-const toggle = document.querySelector(".menu-toggle");
+function toggleMenu() {
+    var menu = document.getElementById("menu");
 
-// Toggle open/close
-toggle.addEventListener("click", function (e) {
-    e.stopPropagation(); // prevent conflict
-    menu.classList.toggle("active");
-});
-
-// Close when clicking menu link
-document.querySelectorAll("#menu a").forEach(link => {
-    link.addEventListener("click", () => {
-        menu.classList.remove("active");
-    });
-});
-
-// Close when clicking outside
-document.addEventListener("click", function (e) {
-    if (!menu.contains(e.target) && !toggle.contains(e.target)) {
-        menu.classList.remove("active");
+    if (menu.style.display === "flex") {
+        menu.style.display = "none";
+    } else {
+        menu.style.display = "flex";
     }
-});
+}
 </script>
 
 <body>
@@ -235,7 +210,7 @@ document.addEventListener("click", function (e) {
     </div>
 
     <!-- Menu Icon -->
-    <div class="menu-toggle">☰</div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 
     <nav id="menu">
         <a href="#">Home</a>

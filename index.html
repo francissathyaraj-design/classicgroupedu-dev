@@ -84,12 +84,61 @@ nav a {
 
 /* HERO */
 .hero {
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-    url('hero.jpg') center/cover no-repeat;
-    background-size: cover;
-    color: white;
-    padding: 100px 20px;
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                url('hero.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+.hero-content p {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.hero-buttons a {
+    margin: 10px;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background: #ff6600;
+    color: white;
+}
+
+.btn-secondary {
+    background: white;
+    color: black;
+}
+
+.btn-primary:hover {
+    background: #e65c00;
+}
+
+.btn-secondary:hover {
+    background: #ddd;
+}
+
+@media(max-width:768px) {
+    .hero-content h1 {
+        font-size: 30px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
 }
 
 /* SECTIONS */
@@ -194,10 +243,17 @@ nav a {
 </header>
 
 <!-- HERO -->
-<div class="hero">
-    <h1>Admissions Open 2026</h1>
-    <p>Start Your Career Today</p>
-</div>
+<section class="hero">
+    <div class="hero-content">
+        <h1>Admissions Open 2026</h1>
+        <p>Start Your Career in Healthcare Today</p>
+
+        <div class="hero-buttons">
+            <a href="#contact" class="btn-primary">Apply Now</a>
+            <a href="tel:9514550520" class="btn-secondary">Call Now</a>
+        </div>
+    </div>
+</section>
 
 <!-- SECTION -->
 <div class="section">
